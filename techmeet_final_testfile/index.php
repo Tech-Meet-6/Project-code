@@ -1,6 +1,5 @@
 <?php
 include_once 'functions.php'; 
-session_start(); 
 
   if (!isset($_SESSION['username'])) {
   	$_SESSION['msg'] = "You must log in first";
@@ -11,6 +10,7 @@ session_start();
   	unset($_SESSION['username']);
   	header("location: login.php");
   }
+  if(!isset($_SESSION)) { session_start(); }
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +42,7 @@ session_start();
 <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 
 <!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 
 
 
@@ -57,7 +57,7 @@ session_start();
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
+    <!-- <ul class="navbar-nav">
       
       <li class="nav-item">
         <a class="nav-link" href="home.php">Home</a>
@@ -69,7 +69,7 @@ session_start();
         <a class="nav-link" href="contact.php">Contact</a>
       </li>
       
-    </ul>
+    </ul> -->
       <ul class="navbar-nav ml-auto">
       
       <li class="nav-item">
@@ -79,7 +79,9 @@ session_start();
     </ul>
   </div>
   </nav>
-
+    <div class= "ads">
+      <img src="images/ads_banner.jpeg" alt="ad">
+    </div>
     <!-- Display event calendar -->
     <div id="calendar_div">
         <?php echo getCalender(); ?>
@@ -92,7 +94,7 @@ session_start();
 
     <!--Pop up page to search the events-->
     <?php include('searchEvents.php');?>
-
+    
 
 </body>
 </html>

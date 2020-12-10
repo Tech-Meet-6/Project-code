@@ -47,7 +47,7 @@
 </nav>
 
 
-<div class="modal-dialog" role="document">
+<div class="modal-dialog login_resgister" role="document">
     <div class="modal-content">
         <div class="modal-header">
             <h2 class="modal-title" id="examplemodallabel">User Login</h2>

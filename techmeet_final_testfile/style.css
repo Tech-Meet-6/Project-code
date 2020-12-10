@@ -41,7 +41,7 @@ body {
   background-position: center;
   background-size: cover;
   padding: 80px;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .banner-text
@@ -51,8 +51,8 @@ body {
   padding-left: 4%;
   padding-top: 220px;
   padding-bottom: 220px;
-
- 
+  font-weight: 200;
+  letter-spacing: 2px;
 }
 .banner-text .btn-primary
 {
@@ -198,14 +198,15 @@ html {
   margin: 8px;
 }
 
-.section {
+/* .section {
   margin-top: 40px;
   margin-bottom: 40px;
   padding: 10px;
   text-align: center;
   background-color: #5F9EA0;
   color: white;
-}
+} */
+
 .about-content {
   margin-top: 40px;
   margin-bottom: 40px;
@@ -251,3 +252,87 @@ html {
 }
 
 /*footer area*/
+
+/*XiaQian*/
+.login_resgister{
+  padding-top: 100px;
+}
+
+.section_header{
+  background-image: linear-gradient(rgba(208,208,208,0.9),rgba(208,208,208,0.9)),url(images/header.png);
+  background-repeat: no-repeat;
+  height: 500px;
+  background-position: 50% 0;
+  background-size: cover;
+  padding-bottom: 30px;
+  padding-top: 120px;
+  padding-left: 30px;
+}
+
+
+.section {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  /* padding: 10px; */
+}
+
+.section_content, .section_content_1{
+  margin-bottom: 40px;
+}
+
+.section_header_title{
+  color: #303030;
+  padding-left: 5px;
+  letter-spacing: 2px;
+  font-size: 50px;
+}
+
+.section_header_quotation{
+  font-size: 70px;
+  font-weight: 200;
+  line-height: 0.9;
+}
+
+.section_content_title, .section_content_team{
+  letter-spacing: 2px;
+  font-size: 55px;
+}
+
+.section_content_1, .section_content_2{
+  background-color: rgba(240,240,240,0.9);
+}
+
+.section_text_paragraph{
+  padding-top: 20px;
+  font-size: 25px;
+  font-weight: 200;
+}
+
+.section_content_team{
+  padding-bottom: 20px;
+}
+
+.section_content, .section_content_1, .section_content_2{
+  padding-left: 30px;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.nav-item{
+  padding-top: 30px;
+  font-size: 20px;
+  font-weight: 200;
+}
+
+.ads1{
+  padding-left: 25px;
+  padding-right: 130px;
+  padding-top: 30px;
+  width: 10px;
+  /* height: fit-content; */
+}
+
+.ads1_display{
+  width: 450px;
+  height: auto;
+}

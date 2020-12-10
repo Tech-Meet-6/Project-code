@@ -46,7 +46,7 @@
 
 
 
-<div class="modal-dialog" role="document">
+<div class="modal-dialog login_resgister" role="document">
   <div class="modal-content">
       <div class="modal-header">
           <h2 class="modal-title" id="examplemodallabel">Register</h2>
@@ -79,6 +79,10 @@
           </p>
       </form>
   </div>
+</div>
+
+<div class= "ads1">
+  <img src="images/ads_banner1.jpg" alt="ad" class= "ads1_display">
 </div>
 
 </body>

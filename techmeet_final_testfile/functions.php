@@ -36,39 +36,49 @@ function getCalender($year = '', $month = ''){
 
         <!--this is the upper section-->
         <section class="title-bar"> 
-
+        <div class="form-row">
             <!--This is the dropdown to choose the year and month-->
-            <div class="title-bar__year"> 
-                <select class="year-dropdown"> 
+            <div class="title-bar__year form-group col-md-2.5"> 
+                <select class="year-dropdown form-control"> 
                     <?php echo getYearList($dateYear); ?> 
                 </select> 
             </div> 
 
-            <div class="title-bar__month"> 
-                <select class="month-dropdown"> 
+            <div class="title-bar__month form-group col-md-3.5"> 
+                <select class="month-dropdown form-control"> 
                     <?php echo getMonthList($dateMonth); ?> 
                 </select> 
             </div> 
 
-            <!--This is for search and filter-->
-            <div>
-                <button type="button" class="btn btn-parimay" data-toggle="modal" data-target="#SearchEvent">+</button>
+            <!--This is for filter-->
+            <div class="form-group col-md">
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#SearchEvent">Search</button>
             </div>
 
-            <!--This is the button for getting the previous month-->
-            <a href="javascript:void(0);"
-                class="title-bar__prev" 
-                onclick="getCalendar('calendar_div',
-                '<?php echo date("Y",strtotime($date.' - 1 Month')); ?>',
-                '<?php echo date("m",strtotime($date.' - 1 Month')); ?>');"> < </a> 
-            
-            <!--This is the button for getting the next month-->
-            <a href="javascript:void(0);" 
-                class="title-bar__next" 
-                onclick="getCalendar('calendar_div',
-                '<?php echo date("Y",strtotime($date.' + 1 Month')); ?>',
-                '<?php echo date("m",strtotime($date.' + 1 Month')); ?>');"> > </a> 
+            <!--This is for filter-->
+            <div class="form-group col-md">
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#AddEvent">Add</button>
+            </div>
 
+
+            <!--This is the button for getting the previous month-->
+            <div class="form-group col-md">
+                <a href="javascript:void(0);"
+                    class="title-bar__prev btn btn-info" 
+                    onclick="getCalendar('calendar_div',
+                    '<?php echo date("Y",strtotime($date.' - 1 Month')); ?>',
+                    '<?php echo date("m",strtotime($date.' - 1 Month')); ?>');"> < </a> 
+            </div>
+
+            <!--This is the button for getting the next month-->
+            <div class="form-group col-md">
+                <a href="javascript:void(0);" 
+                    class="title-bar__next btn btn-info" 
+                    onclick="getCalendar('calendar_div',
+                    '<?php echo date("Y",strtotime($date.' + 1 Month')); ?>',
+                    '<?php echo date("m",strtotime($date.' + 1 Month')); ?>');"> > </a> 
+            </div>
+        </div>
         </section> 
 
         <!--This is for display the events-->
@@ -239,13 +249,23 @@ function getEvents($date = ''){
     $result = $db->query("SELECT event_title, event_link, event_information FROM `Events` WHERE date = '".$date."' AND status = 1"); 
     if($result->num_rows > 0){ 
         $eventListHTML .= '<ul class="sidebar__list">'; 
-        $eventListHTML .= '<li class="sidebar__list-item sidebar__list-item--complete">Events <button type="button" class="btn btn-parimay" data-toggle="modal" data-target="#AddEvent">+</button></li>'; 
+        $eventListHTML .= '<li class="sidebar__list-item sidebar__list-item--complete">Events &nbsp; &nbsp;
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#AddEvent">Add Event</button></li>'; 
         $i=0; 
         while($row = $result->fetch_assoc()){ $i++; 
-            $eventListHTML .= '<li class="sidebar__list-item">'.
-            "<span class='event-name'>".$row['event_title']."</span>".
-            '<br> <a class="event-link" href="'.$row['event_link'].'">'.$row['event_link'].'</a>'.
-            '<br> <a class="event-description">'.$row["event_information"]. '</a><div class="space_between_events"></div></li>'; 
+
+            // $eventListHTML .= '<li class="sidebar__list-item">'.
+            // "<span class='event-name'>".$row['event_title']."</span>".
+            // '<br> <a class="event-link" href="'.$row['event_link'].'">'.$row['event_link'].'</a>'.
+            // '<br> <a class="event-description">'.$row["event_information"]. '</a><div class="space_between_events"></div></li>'; 
+
+            $eventListHTML .= '<div class="card">
+                                <div class="card-header">'.$row["event_title"].'</div>
+                                <div class="card-body">
+                                    <p class="card-text">'.$row["event_information"].'</p>
+                                    <a class="btn btn-info" href="'.$row['event_link'].'">Link To Sign Up</a>
+                                </div>
+                            </div>';
         } 
         $eventListHTML .= '</ul>'; 
     } 
